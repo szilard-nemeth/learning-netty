@@ -1,6 +1,6 @@
 package io.netty.example.discard;
 
-import io.netty.example.common.ServerWithSingleHandler;
+import io.netty.example.common.ServerWithHandlers;
 
 public class DiscardServer {
 
@@ -10,6 +10,6 @@ public class DiscardServer {
       port = Integer.parseInt(args[0]);
     }
 
-    new ServerWithSingleHandler(port, new DiscardServerHandler()).run();
+    new ServerWithHandlers(port, new DiscardServerHandler()).run();
   }
 }

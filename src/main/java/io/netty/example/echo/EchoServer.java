@@ -1,6 +1,6 @@
 package io.netty.example.echo;
 
-import io.netty.example.common.ServerWithSingleHandler;
+import io.netty.example.common.ServerWithHandlers;
 
 public class EchoServer {
 
@@ -10,6 +10,6 @@ public class EchoServer {
       port = Integer.parseInt(args[0]);
     }
 
-    new ServerWithSingleHandler(port, new EchoServerHandler()).run();
+    new ServerWithHandlers(port, new EchoServerHandler()).run();
   }
 }

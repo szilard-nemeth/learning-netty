@@ -1,8 +1,9 @@
-package io.netty.example.time;
+package io.netty.example.time_pojo;
 
 import io.netty.example.common.ServerWithHandlers;
+import io.netty.example.time.TimeServerHandler;
 
-public class TimeServer {
+public class TimeServerPojo {
 
   public static void main(String[] args) throws Exception {
     int port = 8080;
@@ -10,6 +11,6 @@ public class TimeServer {
       port = Integer.parseInt(args[0]);
     }
 
-    new ServerWithHandlers(port, new TimeServerHandler()).run();
+    new ServerWithHandlers(port, new TimeEncoderPojo(), new TimeServerHandlerPojo()).run();
   }
 }

@@ -2,6 +2,7 @@ package io.netty.example.common;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelInboundHandler;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
@@ -10,16 +11,26 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Discards any incoming data.
  */
-public class ServerWithSingleHandler {
+public class ServerWithHandlers {
     private int port;
-    private ChannelInboundHandler handler;
+    private List<ChannelHandler> handlers;
 
-    public ServerWithSingleHandler(int port, ChannelInboundHandler handler) {
+    public ServerWithHandlers(int port, ChannelHandler handler) {
         this.port = port;
-        this.handler = handler;
+        this.handlers = new ArrayList<>();
+        this.handlers.add(handler);
+    }
+    
+    public ServerWithHandlers(int port, ChannelHandler... handlers) {
+        this.port = port;
+        this.handlers = Arrays.asList(handlers);
     }
     
     public void run() throws Exception {
@@ -35,7 +46,9 @@ public class ServerWithSingleHandler {
              .childHandler(new ChannelInitializer<SocketChannel>() { // (4)
                  @Override
                  public void initChannel(SocketChannel ch) throws Exception {
-                     ch.pipeline().addLast(handler);
+                     for (ChannelHandler handler : handlers) {
+                         ch.pipeline().addLast(handler);
+                     }
                  }
              })
              .option(ChannelOption.SO_BACKLOG, 128)          // (5)
