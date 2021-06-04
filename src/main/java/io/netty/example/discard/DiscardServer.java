@@ -1,6 +1,6 @@
 package io.netty.example.discard;
 
-import io.netty.example.ServerWithSingleHandler;
+import io.netty.example.common.ServerWithSingleHandler;
 
 public class DiscardServer {
 

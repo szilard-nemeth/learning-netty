@@ -1,7 +1,6 @@
 package io.netty.example.time;
 
-import io.netty.example.ServerWithSingleHandler;
-import io.netty.example.echo.EchoServerHandler;
+import io.netty.example.common.ServerWithSingleHandler;
 
 public class TimeServer {
 
