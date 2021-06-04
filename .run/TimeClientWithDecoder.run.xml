@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="TimeClientWithDecoder" type="Application" factoryName="Application" nameIsGenerated="true">
+    <option name="MAIN_CLASS_NAME" value="io.netty.example.time.decoding.TimeClientWithDecoder" />
+    <module name="learning-netty" />
+    <option name="PROGRAM_PARAMETERS" value="localhost 8080" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="io.netty.example.time.decoding.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

@@ -1,8 +1,9 @@
-package io.netty.example.discard;
+package io.netty.example.time;
 
 import io.netty.example.ServerWithSingleHandler;
+import io.netty.example.echo.EchoServerHandler;
 
-public class DiscardServer {
+public class TimeServer {
 
   public static void main(String[] args) throws Exception {
     int port = 8080;
@@ -10,6 +11,6 @@ public class DiscardServer {
       port = Integer.parseInt(args[0]);
     }
 
-    new ServerWithSingleHandler(port, new DiscardServerHandler()).run();
+    new ServerWithSingleHandler(port, new TimeServerHandler()).run();
   }
 }

@@ -1,7 +1,6 @@
 package io.netty.example.echo;
 
-import io.netty.example.discard.DiscardServerHandler;
-import io.netty.example.discard.ServerWithSingleHandler;
+import io.netty.example.ServerWithSingleHandler;
 
 public class EchoServer {
 
